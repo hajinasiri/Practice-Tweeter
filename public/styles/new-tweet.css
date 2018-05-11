@@ -1,0 +1,16 @@
+.new-tweet{
+  margin-right:2em;
+  margin-left:2em;
+}
+
+.line{
+  margin-right:4px;
+  margin-left:4px;
+  margin-top:-15px;
+}
+.counter{
+  float:right;
+}
+.text{
+width:100%;
+}
