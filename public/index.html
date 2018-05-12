@@ -16,6 +16,9 @@
     <!-- new tweet box CSS -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
 
+    <!-- Old tweets CSS -->
+    <link rel="stylesheet" href="/styles/old-tweets.css" type="text/css">
+
     <!-- font Roboto condenced from googlefont -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
 
@@ -24,7 +27,12 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- JQuery for counting characters and changing the counter and its color -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+    <!-- To changing tweet states to hover state -->
+    <script type="text/javascript" src="/scripts/hover.js"></script>
   </head>
 
   <body>
@@ -37,6 +45,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <hr class="line">
@@ -46,6 +55,18 @@
           <span class="counter">140</span>
         </form>
       </section>
+
+      <section class="tweet-container">
+        <article>
+          <header>
+            <img src="https://img.buzzfeed.com/buzzfeed-static/static/2017-03/31/13/enhanced/buzzfeed-prod-fastlane-02/original-grid-image-14740-1490981786-4.jpg?crop=590:590;5,0&downsize=715:*&output-format=auto&output-quality=auto" >
+             <h2> Bill Clinton</h2>
+          </header>
+          <main>here goes the tweet</main>
+          <footer>Here goes the footer</footer>
+      </article>
+      </section>
+
     </main>
   </body>
 </html>

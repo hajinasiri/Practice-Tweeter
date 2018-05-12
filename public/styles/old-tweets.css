@@ -1,0 +1,39 @@
+.tweet-container{
+  width:450px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.tweet-container article header{
+  background-color: #dad6d6;
+  padding: 5px;
+  height: 80px;
+}
+
+.tweet-container article header img{
+  width: 60px;
+  float: left;
+  border-radius: 5px;
+  padding-bottom: 5px;
+  margin-right: 5px;
+}
+
+.tweet-container article header h2{
+  color: #244853;
+}
+
+.tweet-container article main{
+  font-size:20px;
+  border: 1px solid;
+  border-color: #dad6d6;
+  padding:10px;
+}
+
+.tweet-container article footer{
+  padding:5px;
+  font-size: 14px;
+}
