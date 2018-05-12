@@ -11,7 +11,12 @@
 .tweet-container article header{
   background-color: #dad6d6;
   padding: 5px;
-  height: 80px;
+  height: 70px;
+  opacity: 0.5;
+}
+
+.tweet-container :hover{
+  opacity: 1;
 }
 
 .tweet-container article header img{
@@ -36,4 +41,15 @@
 .tweet-container article footer{
   padding:5px;
   font-size: 14px;
+}
+
+.icons{
+  float:right;
+  visibility:hidden;
+  display: inline-block;
+}
+
+.tweet-container :hover .icons{
+  visibility:visible;
+
 }
