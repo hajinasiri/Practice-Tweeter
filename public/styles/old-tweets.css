@@ -29,6 +29,8 @@
 
 .tweet-container article header h2{
   color: #244853;
+  display: inline;
+  margin-top:35;
 }
 
 .tweet-container article main{
@@ -52,4 +54,9 @@
 .tweet-container :hover .icons{
   visibility:visible;
 
+}
+.tweet-container h4 {
+   float:right;
+   margin-top:3px;
+   display:inline;
 }

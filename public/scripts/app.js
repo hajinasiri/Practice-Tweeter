@@ -2,7 +2,7 @@
  * Client-side JS logic goes here
  * jQuery is already loaded
  */
-const data = [
+var data = [
   {
     "user": {
       "name": "Newton",
@@ -78,10 +78,17 @@ function renderTweets(tweets) {
   tweets.forEach(function(tweet){
     var $this_tweet = createTweetElement(tweet);
     $(document).ready(function () {
-    $('.container').append($this_tweet);
+    $('.old-tweets').prepend($this_tweet);
   });
 
   })
+}
+// To sanitize the user input
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  console.log(div.innerHTML);
+  return div.innerHTML;
 }
 
 function createTweetElement(data){
@@ -92,8 +99,9 @@ function createTweetElement(data){
       "<header>" +
         "<img src=" + data.user.avatars.regular + ">" +
         "<h2>" + data.user.name + "</h2>" +
+        "<h4>" + data.user.handle + "</h4>" +
       "</header>" +
-      "<main>" + data.content.text + "</main>" +
+      "<main>" + escape(data.content.text); + "</main>" +
       "<footer>" + time(data.created_at) +
         "<div class='icons'>" +
           "<i class='fa fa-flag' aria-hidden='true'> </i>" +
@@ -106,4 +114,41 @@ function createTweetElement(data){
   return single_tweet;
 };
 
+function length_check(text){
+  if(text==""){
+    alert("You should write something in tweet box");
+  }else if(text.length > 140){
+    alert("Your tweet can't be more than 140 characters");
+  }else{
+    return true;
+  }
+}
+
 renderTweets(data);
+
+function load_tweets(){
+  $.getJSON( "/tweets", renderTweets);
+}
+
+$( document ).ready(function() {
+  $('.new-tweet').slideToggle();
+  $('.new-tweet .text').select();
+  $(".container .new-tweet .form ").on('submit', function(event){
+    let form = this;
+    event.preventDefault();
+    let text = $(this).find(".text").val();
+    let validation = length_check(text);
+    if(validation){
+      $(this).children('.counter').text("140");
+      $.ajax({
+        url: '/tweets', //post request url
+        method : 'post',
+        data: $(this).serialize() //converting the form content to an object and sending it as a data
+      }).done(function(){
+        form.reset();
+        load_tweets();
+      });
+    }
+
+  });
+});
